@@ -32,7 +32,7 @@ class FetchKeywordAsyncTask(private val listener: FetchKeywordListener) : AsyncT
                 val sb = StringBuilder()
                 var line: String
                 while (true) {
-                    val line = reader.readLine() ?: break
+                    line = reader.readLine() ?: break
                     sb.append(line + "\n")
                 }
                 result = sb.toString()
@@ -66,7 +66,7 @@ class FetchKeywordAsyncTask(private val listener: FetchKeywordListener) : AsyncT
     override fun onPostExecute(result: String?) {
         try {
             val jArray = JSONArray(result)
-            var dataSet: ArrayList<String> = ArrayList()
+            val dataSet: ArrayList<String> = ArrayList()
             for (i in 0 until jArray.length()) {
                 val key = jArray.getString(i)
 
